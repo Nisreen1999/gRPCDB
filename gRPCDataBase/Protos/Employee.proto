@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package Employee;
+
+service EmployeeDetails{
+	rpc GetEmployee(EmployeeRequest) returns (EmployeeListResponse);
+}
+
+message EmployeeRequest{
+	int32 ID =1;
+	string Email = 2;
+	string Emp_Name = 3;
+	string Designation =4;
+}
+
+message EmployeeResponse{
+	string Email = 1;
+	string Emp_Name = 2;
+	string Designation =3;
+}
+
+message EmployeeListResponse{
+	repeated EmployeeResponse employees = 1;
+}
+
